@@ -12,6 +12,17 @@ builder.Services.AddSwaggerGen();
 //BotrissServices
 builder.Services.AddBotrissServices();
 
+var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        corsPolicyBuilder =>
+        {
+            corsPolicyBuilder.AllowAnyOrigin();
+            corsPolicyBuilder.AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,6 +32,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(MyAllowSpecificOrigins);
 app.UseHttpsRedirection();
 app.UseDefaultFiles();
 app.UseStaticFiles();
