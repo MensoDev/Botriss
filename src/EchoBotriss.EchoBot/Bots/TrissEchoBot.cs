@@ -26,7 +26,7 @@ public class TrissEchoBot : ActivityHandler
             };
             var message = MessageFactory.SuggestedActions(
                 options,
-                string.Format(welcomeMessage, member.Name));
+                string.Format(welcomeMessage, member.Id));
             
             await turnContext.SendActivityAsync(message, cancellationToken);
         }
