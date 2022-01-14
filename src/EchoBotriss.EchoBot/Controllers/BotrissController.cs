@@ -22,10 +22,4 @@ public class BotrissController : ControllerBase
     {
         await _adapter.ProcessAsync(Request, Response, _bot);
     }
-
-    [HttpGet("ping")]
-    public string ReadyApi()
-    {
-        return $" api/messages/ping {DateTime.Now}";
-    }
 }
