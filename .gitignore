@@ -9,7 +9,6 @@ bin/
 obj/
 
 #Rider Ignore
-.idea
 .idea/
 
 # Common node modules locations
